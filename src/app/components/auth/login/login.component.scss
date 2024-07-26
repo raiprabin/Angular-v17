@@ -1,0 +1,104 @@
+/* src/app/components/login/login.component.scss */
+
+.login-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background: url('/assets/background.jpg') no-repeat center center fixed;
+    background-size: cover;
+  }
+  
+  .login-card {
+    width: 100%;
+    max-width: 400px;
+    padding: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    border-radius: 8px;
+    background-color: rgba(255, 255, 255, 0.9); /* Semi-transparent background for readability */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  mat-card-header {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    margin-bottom: 20px;
+  }
+  
+  mat-card-title {
+    font-size: 24px;
+    font-weight: bold;
+    color: #333;
+    text-align: center;
+  }
+  
+  mat-form-field {
+    width: 100%;
+    margin-bottom: 16px;
+  }
+  
+  button {
+    width: 100%;
+    margin-top: 8px;
+  }
+  
+  .separator {
+    text-align: center;
+    margin: 16px 0;
+    font-size: 14px;
+    color: #777;
+  }
+  
+  .register-link {
+    display: block;
+    text-align: center;
+    color: #3f51b5;
+    text-decoration: none;
+    margin-top: 16px;
+  }
+  
+  .register-link:hover {
+    text-decoration: underline;
+  }
+  a {
+    display: inline-block;
+    color: #3f51b5;
+    text-decoration: none;
+    font-size: 14px;
+    font-weight: 500;
+    background: #e3f2fd; /* Light blue background */
+    padding: 10px 20px;
+    border-radius: 4px;
+    transition: background-color 0.3s, color 0.3s;
+  }
+  
+  a:hover {
+    background: #bbdefb; /* Slightly darker blue */
+    color: #0d47a1; /* Darker blue */
+    text-decoration: none;
+  }
+
+  mat-spinner {
+    margin-left: 8px;
+  }
+
+  /* src/app/login/login.component.scss */
+.error-toast {
+  color: #fff;
+  background-color: #f44336; // Red color for error
+}
+
+// /* styles.css or a dedicated custom CSS file */
+
+// /* Remove the default outline from input fields */
+// input:focus {
+//   outline: none;
+// }
+
+// /* Add smooth transition for hover effects */
+// button, a {
+//   transition: background-color 0.3s, color 0.3s;
+// }

@@ -1,0 +1,50 @@
+<!-- src/app/login/login.component.html -->
+<div class="login-container">
+  <mat-card class="login-card">
+    <mat-card-header>
+      <mat-card-title>Login</mat-card-title>
+    </mat-card-header>
+    <mat-card-content>
+      <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+        <mat-form-field>
+          <mat-label>Email</mat-label>
+          <input matInput placeholder="Email" formControlName="email" required>
+          <mat-error *ngIf="loginForm.get('email')?.hasError('required')">
+            Email is required
+          </mat-error>
+          <mat-error *ngIf="loginForm.get('email')?.hasError('email')">
+            Invalid email format
+          </mat-error>
+        </mat-form-field>
+        <mat-form-field>
+          <mat-label>Password</mat-label>
+          <input matInput placeholder="Password" formControlName="password" type="password" required>
+          <mat-error *ngIf="loginForm.get('password')?.hasError('required')">
+          Password is required
+          </mat-error>
+        </mat-form-field>
+        <button mat-raised-button color="primary" type="submit" [disabled]="(isEmailSignInLoading() | async)">
+          <ng-container *ngIf="!(isEmailSignInLoading() | async); else loginLoadingTemplate">
+            Login
+          </ng-container>
+          <ng-template #loginLoadingTemplate>
+            <mat-spinner diameter="24"></mat-spinner>
+          </ng-template>
+        </button>
+      </form>
+
+      <div class="separator">OR</div>
+      <button mat-raised-button color="accent" (click)="onSignInWithGoogle()" [disabled]="(isGoogleSignInLoading() | async)">
+        <ng-container *ngIf="!(isGoogleSignInLoading() | async); else googleLoadingTemplate">
+          Sign In with Google
+        </ng-container>
+        <ng-template #googleLoadingTemplate>
+          <mat-spinner diameter="24"></mat-spinner>
+        </ng-template>
+      </button>
+    </mat-card-content>
+    <mat-card-actions>
+      <a routerLink="/register" class="register-link">Don't have an account? Register</a>
+    </mat-card-actions>
+  </mat-card>
+</div>

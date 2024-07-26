@@ -1,0 +1,28 @@
+<div class="register-container">
+    <mat-card>
+      <h1>Register</h1>
+      
+      <form (ngSubmit)="onRegister()">
+        <mat-form-field>
+          <input matInput placeholder="Email" [(ngModel)]="email" name="email">
+        </mat-form-field>
+        <mat-form-field>
+          <input matInput placeholder="Password" [(ngModel)]="password" name="password" type="password">
+        </mat-form-field>
+        <!-- <button mat-raised-button color="primary">Register</button> -->
+        <button mat-raised-button color="primary" type="submit" [disabled]="(isEmailSignUpLoading() | async)">
+          <ng-container *ngIf="!(isEmailSignUpLoading() | async); else registerLoadingTemplate">
+            Register
+          </ng-container>
+          <ng-template #registerLoadingTemplate>
+            <mat-spinner diameter="24"></mat-spinner>
+          </ng-template>
+        </button>
+      </form>
+      <mat-card-actions>
+
+      <a routerLink="/login" class="login-link">Already have an account? Login</a>
+      </mat-card-actions>
+    </mat-card>
+  </div>
+  
